@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>User Registration</h2>
+        <form action="insert.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="gender">Gender:</label>
+            <div class="radio-group">
+               <label><input type="radio" name="gender" value="Male" required> Male</label>
+               <label><input type="radio" name="gender" value="Female" required> Female</label>
+               <label><input type="radio" name="gender" value="Other" required> Other</label>
+            </div>
+
+
+            <label for="course">Registered Course:</label>
+            <select id="course" name="course" required>
+                <option value="Web ">Web Engineering</option>
+                <option value="Frontend">Frontend</option>
+                <option value="Backend">Backend</option>
+                <option value="Machinelearning">AI & ML</option>
+            </select>
+
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>
