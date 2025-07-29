@@ -1,19 +1,15 @@
 <?php
-// Database credentials
 $servername = "localhost";
-$username = "root"; // Your MySQL username
-$password = "";     // Your MySQL password
+$username = "root"; 
+$password = "";   
 $dbname = "user_registration";
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Process form data on POST request
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (
         isset($_POST['name'], $_POST['email'], $_POST['age'], 
@@ -22,11 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = trim($_POST['name']);
         $email = trim($_POST['email']);
         $age = (int)$_POST['age'];
-        $plain_password = $_POST['password']; // Store password as plain text (not recommended)
+        $plain_password = $_POST['password']; 
         $gender = $_POST['gender'];
         $course = $_POST['course'];
 
-        // Prepare SQL statement
         $stmt = $conn->prepare("INSERT INTO users (name, email, age, password, gender, course) VALUES (?, ?, ?, ?, ?, ?)");
 
         if ($stmt === false) {
